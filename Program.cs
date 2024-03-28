@@ -1,6 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-Console.WriteLine("Hello, World!");
+var list = new List<int>() { 7, 10, 66, 65535, -65535, 18 };
+var queue = new PQueue<int>(((lhs, rhs) => lhs - rhs), list);
+queue.Enqueue(-1);
+var tmp = queue.Dequeue();
 
 class PQueue<T>
 {
@@ -39,6 +42,7 @@ class PQueue<T>
             _list.Sort();
             return;
         }
+
         _list.Sort(Compare);
     }
 
